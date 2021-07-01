@@ -1,9 +1,11 @@
 pipeline {
-    agent any
-
-    tools {
-        gradle "gradle-69"
+    agent {
+        docker {
+            image "openjdk:11"
+            label "docker"
+        }
     }
+
 
     stages {
         stage("Build") {
