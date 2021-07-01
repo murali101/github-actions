@@ -25,7 +25,7 @@ pipeline {
             steps {
                     echo "deploying application...."
                     withCredentials([
-                        usernamePassword(credentials:'test-local-credentials', usernameVariable: USER, passwordVariable: PWD)
+                        usernamePassword(credentialsId:'test-local-credentials', usernameVariable: USER, passwordVariable: PWD)
                     ]) {
                         sh "script details ${USER} ${PWD}"
                     }
