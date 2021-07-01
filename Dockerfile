@@ -1,5 +1,5 @@
-FROM gradle:jdk10
-
-RUN useradd -m -u 1000 -s /bin/bash jenkins
-
-RUN yum install openssh-clients
+FROM java:alpine
+VOLUME /tmp
+ADD app.jar /app.jar
+RUN sh -c 'touch /app.jar'
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]

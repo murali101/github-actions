@@ -1,7 +1,6 @@
 pipeline {
     agent {
         docker {
-            image "gradle:jdk10"
             label "master"
         }
     }
@@ -15,7 +14,6 @@ pipeline {
             steps {
                 sh "./gradlew -version"
                 sh "./gradlew clean"
-                sh "./gradlew clean build"
             }
         }
     }
