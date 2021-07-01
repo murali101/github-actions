@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image "gradle:jdk10"
+            label "master"
+        }
+    }
     options {
             skipStagesAfterUnstable()
         }
