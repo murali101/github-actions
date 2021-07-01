@@ -1,28 +1,34 @@
+CODE_CHANGES = getGitChanges()
 pipeline {
     agent any
 
-
-
     stages {
         stage("Build") {
-            steps {
-                sh "./gradlew -version"
-                sh "./gradlew clean"
+            when {
+                expression {
+                    BRANCH_NAME == 'master' && CODE_CHANGES == true
+                }
             }
-        }
+           steps {
+                        echo "building application...."
+                    }
+            }
 
         stage("test") {
-                    steps {
-                        sh "./gradlew -version"
-                        sh "./gradlew clean"
-                    }
+            when {
+                expression {
+                    BRANCH_NAME == 'dev'
                 }
+            }
+            steps {
+                  echo "testing application...."
+            }
+        }
          stage("deploy") {
-                             steps {
-                                 sh "./gradlew -version"
-                                 sh "./gradlew clean"
-                             }
-                         }
+            steps {
+                    echo "deploying application...."
+            }
+        }
     }
     post {
         always {
