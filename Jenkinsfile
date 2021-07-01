@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image "adoptopenjdk:11-jdk-hotspot"
+            image "openjdk:11"
             label "master"
         }
     }
