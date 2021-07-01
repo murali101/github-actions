@@ -1,10 +1,8 @@
 pipeline {
-    agent {
-        docker {
-            image "adoptopenjdk/openjdk8:ubi-jre"
-            label "master"
+    agent any
+    options {
+            skipStagesAfterUnstable()
         }
-    }
 
 
     stages {
