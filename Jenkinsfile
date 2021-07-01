@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image "adoptopenjdk/openjdk8:ubi"
+            image "maven:3.6.0-jdk-13"
             label "master"
         }
     }
