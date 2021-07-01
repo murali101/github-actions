@@ -27,7 +27,7 @@ pipeline {
                     withCredentials([
                         usernamePassword(credentialsId:'test-local-credentials', usernameVariable: 'USER', passwordVariable: 'PWD')
                     ]) {
-                        sh "script details ${USER} ${PWD}"
+                        echo "script details ${USER} ${PWD}"
                     }
             }
         }
