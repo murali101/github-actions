@@ -2,24 +2,21 @@
 pipeline {
     agent any
 
+    environment {
+        NEW_VERSION = '1.2.0'
+    }
+
     stages {
         stage("Build") {
-            when {
-                expression {
-                    BRANCH_NAME == 'master'
-                }
-            }
+            
            steps {
                         echo "building application...."
+                        echo "building version ${NEW_VERSION}"
                     }
             }
 
         stage("test") {
-            when {
-                expression {
-                    BRANCH_NAME == 'dev'
-                }
-            }
+             
             steps {
                   echo "testing application...."
             }
