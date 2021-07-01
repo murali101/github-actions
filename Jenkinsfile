@@ -4,6 +4,7 @@ pipeline {
 
     environment {
         NEW_VERSION = '1.2.0'
+        SERVER_CREDENTIALS = credentials('test-local-credentials')
     }
 
     stages {
@@ -19,6 +20,7 @@ pipeline {
              
             steps {
                   echo "testing application...."
+                  echo "testing credentials ........ ===> ${SERVER_CREDENTIALS}"
             }
         }
          stage("deploy") {
