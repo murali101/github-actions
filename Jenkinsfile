@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        master {
+        docker {
             label "master"
         }
     }
